@@ -37,10 +37,10 @@ Copy code
 flutter run
 
 
-##Usage
+## Usage
 **Adding Expenses**: Tap the '+' button to add a new expense. A modal will appear where you can enter the details.
 **Viewing Expenses**: Expenses are displayed in a list below the chart, showing the total spendings at the top.
 **Undo Deletion**: After deleting an expense, a Snackbar will appear at the bottom of the screen. Tap "Undo" to restore the deleted expense.
 
-##Contributing
+## Contributing
 Contributions are welcome! Please fork the repository and submit a pull request.
