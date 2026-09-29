@@ -1,26 +1,30 @@
 import 'package:expence_tracker/widgets/expenses.dart';
 import 'package:flutter/material.dart';
 
-var kColorScheme = ColorScheme.fromSeed(
+final kColorScheme = ColorScheme.fromSeed(
   seedColor: const Color.fromARGB(255, 0, 0, 255),
 );
 
-var kDarkColorScheme = ColorScheme.fromSeed(
+final kDarkColorScheme = ColorScheme.fromSeed(
   brightness: Brightness.dark,
   seedColor: const Color.fromARGB(255, 10, 0, 20),
 );
 
 void main() {
-  runApp(
-    MaterialApp(
+  runApp(const ExpenseTrackerApp());
+}
+
+class ExpenseTrackerApp extends StatelessWidget {
+  const ExpenseTrackerApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       darkTheme: ThemeData.dark().copyWith(
         colorScheme: kDarkColorScheme,
-        cardTheme: const CardTheme().copyWith(
+        cardTheme: const CardThemeData().copyWith(
           color: kDarkColorScheme.secondaryContainer,
-          margin: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 8,
-          ),
+          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
@@ -35,28 +39,25 @@ void main() {
           backgroundColor: kColorScheme.onPrimaryContainer,
           foregroundColor: kColorScheme.primaryContainer,
         ),
-        cardTheme: const CardTheme().copyWith(
-          color: kColorScheme.secondaryContainer,
-          margin: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 8,
-          ),
+        cardTheme: const CardThemeData().copyWith(
+          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-              backgroundColor: kColorScheme.primaryContainer),
+            backgroundColor: kColorScheme.primaryContainer,
+          ),
         ),
         textTheme: ThemeData().textTheme.copyWith(
-              titleLarge: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: kColorScheme.onSecondaryContainer,
-                fontSize: 25,
-              ),
-            ),
+          titleLarge: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: kColorScheme.onSecondaryContainer,
+            fontSize: 25,
+          ),
+        ),
       ),
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
       home: const Expenses(),
-    ),
-  );
+    );
+  }
 }

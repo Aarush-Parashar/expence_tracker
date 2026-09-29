@@ -14,15 +14,17 @@ class Expenses extends StatefulWidget {
 class _ExpensesState extends State<Expenses> {
   final List<Expense> _registeredExpenses = [
     Expense(
-        title: 'ABC',
-        amount: 10,
-        date: DateTime.now(),
-        category: Category.leisure),
+      title: 'ABC',
+      amount: 10,
+      date: DateTime.now(),
+      category: Category.leisure,
+    ),
     Expense(
-        title: 'XYZ',
-        amount: 10,
-        date: DateTime.now(),
-        category: Category.leisure),
+      title: 'XYZ',
+      amount: 10,
+      date: DateTime.now(),
+      category: Category.leisure,
+    ),
   ];
 
   void _openAddExpenseOverlay() {
@@ -30,9 +32,7 @@ class _ExpensesState extends State<Expenses> {
       useSafeArea: true,
       isScrollControlled: true,
       context: context,
-      builder: (ctx) => NewExpense(
-        onAddExpense: _addExpense,
-      ),
+      builder: (ctx) => NewExpense(onAddExpense: _addExpense),
     );
   }
 
@@ -76,9 +76,7 @@ class _ExpensesState extends State<Expenses> {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
 
-    Widget mainContent = const Center(
-      child: Text('No Expenses Found!'),
-    );
+    Widget mainContent = const Center(child: Text('No Expenses Found!'));
     if (_registeredExpenses.isNotEmpty) {
       mainContent = ExpensesList(
         expense: _registeredExpenses,
@@ -107,19 +105,13 @@ class _ExpensesState extends State<Expenses> {
                     ),
                   ),
                 ),
-                Chart(
-                  expenses: _registeredExpenses,
-                ),
+                Chart(expenses: _registeredExpenses),
                 Expanded(child: mainContent),
               ],
             )
           : Row(
               children: [
-                Expanded(
-                  child: Chart(
-                    expenses: _registeredExpenses,
-                  ),
-                ),
+                Expanded(child: Chart(expenses: _registeredExpenses)),
                 Expanded(
                   child: Column(
                     children: [

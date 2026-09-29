@@ -2,10 +2,7 @@ import 'package:expence_tracker/models/expense.dart';
 import 'package:flutter/material.dart';
 
 class ExpenseItem extends StatelessWidget {
-  const ExpenseItem({
-    super.key,
-    required this.expense,
-  });
+  const ExpenseItem({super.key, required this.expense});
 
   final Expense expense;
 
@@ -21,9 +18,7 @@ class ExpenseItem extends StatelessWidget {
                 Text(
                   expense.title,
                   textAlign: TextAlign.start,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -38,11 +33,11 @@ class ExpenseItem extends StatelessWidget {
                     const SizedBox(width: 30),
                     const Icon(Icons.calendar_month_sharp),
                     const SizedBox(width: 8),
-                    Text(expense.formattedDate)
+                    Text(expense.formattedDate),
                   ],
-                )
+                ),
               ],
-            )
+            ),
           ],
         ),
       ),
